@@ -1,0 +1,22 @@
+{
+  "name": "locata",
+  "version": "1.0.0",
+  "description": "The backend required to connect to the Real time public vechile tracking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aviithapa/ApiLocata.git"
+  },
+  "author": "Abhishek Thapa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aviithapa/ApiLocata/issues"
+  },
+  "homepage": "https://github.com/Aviithapa/ApiLocata#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
