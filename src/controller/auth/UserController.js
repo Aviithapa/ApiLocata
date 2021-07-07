@@ -98,7 +98,21 @@ exports.getMe=function(req,res){
 
 // ------------------USER UPDATE-----------------------
 exports.user_update=function(req,res){
-
+  const id=req.params.id
+  const data=req.body
+  User.updateOne({_id:id},{name:data.name,phone_number:data.phone_number})
+  .then(function(result){
+    res.status(200).json({
+        success:true,
+        message:"User update Sucessfully",
+        data:result
+      })
+}).catch(function(result){
+  res.status(500).json({
+      success:false,
+      message:result
+   })
+}) 
 };
 
 // ------------------DELETE USER-----------------------

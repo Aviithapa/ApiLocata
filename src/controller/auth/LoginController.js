@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 exports.login = function (req, res) {
   const email=req.body.username;
   const password= req.body.password;
-  console.log(email , password)
   //find the user on the basis of the email provided
   User.findOne({username:email})
   //after getting the email

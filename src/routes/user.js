@@ -12,10 +12,10 @@ router.get("/user/display",verify.varifyUser, UserController.user_display);
 
 
 // // ------------------ROUTE TO DELETE THE  USER -----------------------
-// router.get("/user/delete/:id", UserController.user_delete);
+router.get("/user/delete/:id",verify.varifyUser, UserController.user_delete);
 
 // // ------------------ROUTE TO UPDATE USER -----------------------
-// router.put("/user/update/:id", UserController.user_update);
+router.put("/user/update/:id",verify.varifyUser, UserController.user_update);
 
 // // ------------------ROUTE TO VERIFY USER -----------------------
 // router.get("/verify/:code", UserController.verify);

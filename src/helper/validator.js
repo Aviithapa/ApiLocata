@@ -1,5 +1,5 @@
 const User=require('../models/auth/user');
-
+const bcrypt=require('bcrypt');
 const{check,validationResult}=require('express-validator');
 
 exports.validate=(method) => {
@@ -22,4 +22,5 @@ exports.validate=(method) => {
       }
     };
   };
+
 
