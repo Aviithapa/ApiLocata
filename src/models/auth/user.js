@@ -4,11 +4,6 @@ var user= mongoose.model('User', {
         type:String,
         require:true
     },
-    email:{
-        type:String,
-        required:true,
-        unique:true
-    },
     phone_number:{
         type:String,
         required:true,
@@ -29,6 +24,9 @@ var user= mongoose.model('User', {
     created_at:{
         type:Date,
         default:Date.now
+    },
+    user_image:{
+
     }
 
 });
