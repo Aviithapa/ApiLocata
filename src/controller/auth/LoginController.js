@@ -27,12 +27,12 @@ exports.login = function (req, res) {
               });
           }
           //if it matches generate a token with user email attached to it and store it
-          const accesstoken = jwt.sign({email:data.email},"abhishek");
-          console.log(data)
+          const accesstoken = jwt.sign({id:data._id},"abhishek");
           res.status(200).json({
              success:true,
              message:"Login Successful",
              accesstoken:accesstoken,
+
              data:data
          });
       });

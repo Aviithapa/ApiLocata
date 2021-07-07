@@ -1,11 +1,6 @@
 const User=require('../../models/auth/user');
-// const bcrypt=require("../../../node_modules/bcrypt/bcrypt");
 const bcrypt=require('bcrypt');
 const{check,validationResult}=require('express-validator');
-// const MailController=require('../MailController');
-// ------------------Validate Inputs -----------------------
-
-
 // ------------------REGISTER USER -----------------------
 exports.user_register=async(req,res)=>{
   var myData=new User({
@@ -58,7 +53,14 @@ exports.user_register=async(req,res)=>{
 
 // ------------------USER DISPLAY-----------------------
 exports.user_display=function(req,res){
-
+  User.find()
+  .then(function(data){
+      res.status(200).json({
+        success:true,
+        message:"All user",
+        data:data
+      });
+    });
 };
 
 
