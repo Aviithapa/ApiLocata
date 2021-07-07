@@ -85,7 +85,7 @@ exports.reset=function(req,res){
                     .then(function(result){
                     res.status(200).json({
                         success:true,
-                        message:"User update Sucessfully",
+                        message:"Password update Sucessfully",
                         data:result
                         });
                 }).catch(function(result){
