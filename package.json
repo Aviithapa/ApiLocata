@@ -2,7 +2,7 @@
   "name": "locata",
   "version": "1.0.0",
   "description": "The backend required to connect to the Real time public vechile tracking",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
