@@ -1,13 +1,16 @@
 const mongoose= require('mongoose');
-var user= mongoose.model('User', {
+var user= mongoose.model('user', {
     name:{
         type:String,
         require:true
     },
-    phone_number:{
+    username:{
         type:String,
-        required:true,
-        unique:true
+        unique: true,
+        required: true 
+    },
+    phone_number:{
+       type:String     
     },
     role:{
         type:String,
@@ -26,8 +29,9 @@ var user= mongoose.model('User', {
         default:Date.now
     },
     user_image:{
-
+        type:String,
     }
 
 });
+
 module.exports = user

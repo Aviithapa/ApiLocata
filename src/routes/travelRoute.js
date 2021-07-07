@@ -1,23 +1,22 @@
 
 const express=require('express');
 const router =express.Router();
-var UserController=require('../controller/auth/UserController.js');
+var TravelRouteController=require('../controller/general/TravelRouteController.js');
+const validates=require('../helper/validator');
 
 // ------------------ROUTE TO REGISTER  USER -----------------------
 
-router.post("/user/register", UserController)
+router.post("/route/add", validates.validate('travel_route'),TravelRouteController.add_travel_route);
 
-// ------------------ROUTE TO DISPLAY USER -----------------------
-router.get("/user/display", UserController.user_display);
+// ------------------ROUTE TO DISPLAY TRAVEL ROUTES -----------------------
+// router.get("/route/display", UserController.user_display);
 
 
-// ------------------ROUTE TO DELETE THE  USER -----------------------
-router.get("/user/delete/:id", UserController.user_delete);
+// // ------------------ROUTE TO DELETE TRAVEL ROUTE -----------------------
+// router.get("/route/delete/:id", UserController.user_delete);
 
-// ------------------ROUTE TO UPDATE USER -----------------------
-router.put("/user/update/:id", UserController.user_update);
+// // ------------------ROUTE TO UPDATE TRAVEL ROOUTE -----------------------
+// router.put("/route/update/:id", UserController.user_update);
 
-// ------------------ROUTE TO VERIFY USER -----------------------
-router.get("/verify/:code", UserController.verify);
 
 module.exports = router;
