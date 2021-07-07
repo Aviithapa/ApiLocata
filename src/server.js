@@ -8,14 +8,14 @@ const db = require("./database/database");
 //user route
 const router = require("./routes/travelRoute");
 const user = require("./routes/user");
-const login = require("./routes/login");
+const auth = require("./routes/auth");
 //posts route
 
 app.use(express.json());
 app.use(cors());
 
 //combining All the routes
-app.use(router,user,login);
+app.use(router,user,auth);
 
 
 app.listen(port);

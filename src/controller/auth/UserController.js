@@ -53,6 +53,7 @@ exports.user_register=async(req,res)=>{
 
 // ------------------USER DISPLAY-----------------------
 exports.user_display=function(req,res){
+  
   User.find()
   .then(function(data){
       res.status(200).json({
@@ -117,7 +118,18 @@ exports.user_update=function(req,res){
 
 // ------------------DELETE USER-----------------------
 exports.user_delete=function(req,res){
-   
+  const id=req.params.id
+  User.deleteOne({_id:id}).then(function(data){
+    res.status(200).json({
+      success:true,
+      message:"Deleted Successfully"
+   });
+  }).catch(function(result){
+    res.status(500).json({
+        success:false,
+        message:"No user found with that id"
+     });
+  });
 };
 
 
