@@ -1,8 +1,8 @@
 
 const express=require('express');
 const router =express.Router();
-var TravelRouteController=require('../controller/general/TravelRouteController.js');
-const validates=require('../helper/validator');
+var TravelRouteController=require('../../controller/general/TravelRouteController');
+const validates=require('../../helper/validator');
 
 // ------------------ROUTE TO REGISTER  USER -----------------------
 

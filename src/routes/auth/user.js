@@ -1,8 +1,8 @@
 const express=require('express');
 const router =express.Router();
-var UserController=require('../controller/auth/UserController.js');
-const validates=require('../helper/validator');
-const verify=require('../middleware/auth');
+var UserController=require('../../controller/auth/UserController.js');
+const validates=require('../../helper/validator');
+const verify=require('../../middleware/auth');
 // ------------------ROUTE TO REGISTER  USER -----------------------
 
 router.post("/user/register",validates.validate('user_register'),UserController.user_register);

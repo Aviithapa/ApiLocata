@@ -6,16 +6,17 @@ const cors = require("cors");
 //route of the database
 const db = require("./database/database");
 //user route
-const router = require("./routes/travelRoute");
-const user = require("./routes/user");
-const auth = require("./routes/auth");
+const travelRoute = require("./routes/general/travelRoute");
+const vehicleRegister = require("./routes/general/vehicleRegister");
+const user = require("./routes/auth/user");
+const auth = require("./routes/auth/auth");
 //posts route
 
 app.use(express.json());
 app.use(cors());
 
 //combining All the routes
-app.use(router,user,auth);
+app.use(travelRoute,user,auth,vehicleRegister);
 
 
 app.listen(port);

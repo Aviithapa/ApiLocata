@@ -4,7 +4,7 @@ var forget= mongoose.model('forget_password', {
         type:String,
         required: true 
     },
-    token:{
+    code:{
        type:String,
        required: true      
     },

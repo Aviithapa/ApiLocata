@@ -1,10 +1,13 @@
-const TravelRoute=require('../../models/general/travelroute');
+const vehicleRegister=require('../../models/general/vehicleRegister');
 const{check,validationResult}=require('express-validator');
+const validater=require('../../helper/validator')
 // ------------------REGISTER USER -----------------------
-exports.add_travel_route=async(req,res)=>{
-  var myData=new TravelRoute({
-    RouteName: req.body.RouteName,
-    RouteWay: req.body.RouteWay,
+exports.add_new_vechicle=async(req,res)=>{
+  var myData=new vehicleRegister({
+    vechile_no: req.body.vechile_no,
+    user_id: req.body.user_id,
+    route_Name: req.body.route_Name,
+    Location: req.body.Location,
     });
     const error=await validationResult(req);
     if(!error.isEmpty()){
@@ -17,9 +20,22 @@ exports.add_travel_route=async(req,res)=>{
         .then(function(result){
             res.status(201).json({
                 success:true,
-                message:"Route Registered Sucessfully!",
+                message:"Vehicle Registered Sucessfully!",
                 data:result
               });
+              validater.roleAssign(result.user_id)
+               .then(function(result){
+                res.status(201).json({
+                    success:true,
+                    message:"Role Assigned!",
+                    data:result
+                  });
+                }).catch(function(result){
+                    res.status(500).json({
+                        success:false,
+                        message:result
+                      });
+                });   
         })
         .catch(function(result){
             res.status(500).json({

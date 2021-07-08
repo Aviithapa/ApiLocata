@@ -1,5 +1,5 @@
 const mongoose= require('mongoose');
-var route= mongoose.model('Route', {
+var travelroute= mongoose.model('TravelRoute', {
     RouteName:{
         type:String,
         require:true
@@ -15,4 +15,4 @@ var route= mongoose.model('Route', {
     },
 
 });
-module.exports = route
+module.exports = travelroute
