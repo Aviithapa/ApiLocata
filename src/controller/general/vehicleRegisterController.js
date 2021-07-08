@@ -48,7 +48,7 @@ exports.add_new_vechicle=async(req,res)=>{
 
 
 exports.get_travel_route=function(req,res){
-  TravelRoute.find()
+ vehicleRegister.find()
   .then(function(data){
       res.status(200).json({
         success:true,
@@ -61,6 +61,33 @@ exports.get_travel_route=function(req,res){
         message:err
       });
     });
+};
+
+
+exports.updateLocation=function(req,res){
+    const id=req.params.id;
+    const data=req.body;
+    vehicleRegister.updateOne({_id:id},{Location:data.Location})
+        .then(function(result){
+            vehicleRegister.findById(id)
+            .then(function(data){
+                res.status(200).json({
+                  success:true,
+                  message:"All Routes",
+                  data:data.Location
+                });
+              }).catch(function(err) {
+                res.status(200).json({
+                  success:true,
+                  message:err
+                });
+              });
+        }).catch(function(result){
+        res.status(500).json({
+            success:false,
+            message:result
+        });
+        });
 };
 
 

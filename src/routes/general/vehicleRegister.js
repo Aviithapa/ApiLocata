@@ -16,7 +16,6 @@ router.post("/register/vehicle", validates.validate('vehicle_register'),vechicle
 // router.get("/route/delete/:id", UserController.user_delete);
 
 // // ------------------ROUTE TO UPDATE TRAVEL ROOUTE -----------------------
-// router.put("/route/update/:id", UserController.user_update);
-
+router.put("/location/update/:id", vechicleRegisterController.updateLocation);
 
 module.exports = router;
