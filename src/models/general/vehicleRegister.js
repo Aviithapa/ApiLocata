@@ -12,13 +12,6 @@ var vehicleRegister= mongoose.model('vehicleRegister', {
         type:String,
         required: true,  
     },
-    Location : [
-        {
-             longitude: {type : String},
-             latitude: {type : String},
-             direction: {type : String},
-        }
-     ],
 });
 
 module.exports = vehicleRegister

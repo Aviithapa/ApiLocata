@@ -1,10 +1,9 @@
-const TravelRoute=require('../../models/general/travelroute');
+const Location=require('../../models/general/locationRoute');
 const{check,validationResult}=require('express-validator');
 // ------------------REGISTER USER -----------------------
-exports.add_travel_route=async(req,res)=>{
-  var myData=new TravelRoute({
-    RouteName: req.body.RouteName,
-    RouteWay: req.body.RouteWay,
+exports.add_location=async(req,res)=>{
+  var myData=new Location({
+    name: req.body.name
     });
     const error=await validationResult(req);
     if(!error.isEmpty()){
@@ -17,7 +16,7 @@ exports.add_travel_route=async(req,res)=>{
         .then(function(result){
             res.status(201).json({
                 success:true,
-                message:"Route Registered Sucessfully!",
+                message:"Location Added Sucessfully!",
                 data:result
               });
         })
@@ -31,8 +30,8 @@ exports.add_travel_route=async(req,res)=>{
 };
 
 
-exports.get_travel_route=function(req,res){
-  TravelRoute.find()
+exports.get_location=function(req,res){
+  Location.find()
   .then(function(data){
       res.status(200).json({
         success:true,
@@ -47,30 +46,3 @@ exports.get_travel_route=function(req,res){
     });
 };
 
-
-exports.get_search_data=function(req,res) {
-  var myData = [];
-  TravelRoute.find({$and:[{"RouteWay.name":"koteswor"},{"RouteWay.name":"baneswor"}]})
-  .then(function(data){
-    if(!data){
-      res.status(200).json({
-        success:true,
-        message:"All routes belonging to the it",
-        result:data
-      });
-    }else{
-      res.status(200).json({
-        success:true,
-        message:"No data related to such route",
-        data:data
-      });
-    }
-    
-  }).catch(function(err) {
-    res.status(200).json({
-      success:false,
-      message:err
-    });
-  });
-  
-}

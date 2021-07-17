@@ -1,17 +1,17 @@
 
 const express=require('express');
 const router =express.Router();
-var TravelRouteController=require('../../controller/general/TravelRouteController');
+var LocationController=require('../../controller/general/LocationController');
 const validates=require('../../helper/validator');
 
 // ------------------ROUTE TO REGISTER  USER -----------------------
 
-router.post("/route/add", validates.validate('travel_route'),TravelRouteController.add_travel_route);
+router.post("/location/add", LocationController.add_location);
 
 // ------------------ROUTE TO DISPLAY TRAVEL ROUTES -----------------------
-router.get("/route/display", TravelRouteController.get_travel_route);
+router.get("/location/display", LocationController.get_location);
 
-router.get("/route/get", TravelRouteController.get_search_data);
+
 // // ------------------ROUTE TO DELETE TRAVEL ROUTE -----------------------
 // router.get("/route/delete/:id", UserController.user_delete);
 

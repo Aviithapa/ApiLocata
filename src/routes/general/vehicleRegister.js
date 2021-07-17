@@ -6,7 +6,7 @@ const validates=require('../../helper/validator');
 
 // ------------------ROUTE TO REGISTER  USER -----------------------
 
-router.post("/register/vehicle", validates.validate('vehicle_register'),vechicleRegisterController.add_new_vechicle);
+router.post("/register/vehicle",vechicleRegisterController.add_new_vechicle);
 
 // ------------------ROUTE TO DISPLAY TRAVEL ROUTES -----------------------
 // router.get("/route/display", UserController.user_display);

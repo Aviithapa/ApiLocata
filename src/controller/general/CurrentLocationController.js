@@ -1,15 +1,13 @@
-const vehicleRegister=require('../../models/general/vehicleRegister');
+const CurrentLocation=require('../../models/general/currentLocation');
 const{check,validationResult}=require('express-validator');
-const validater=require('../../helper/validator')
 // ------------------REGISTER USER -----------------------
-exports.add_new_vechicle=async(req,res)=>{
-  var myData=new vehicleRegister({
-    vechile_no: req.body.vehicle_no,
-    user_id: req.body.user_id,
-    route_Name: req.body.route_Name,
-    Location: req.body.Location,
+exports.add_current_location=async(req,res)=>{
+  var myData=new CurrentLocation({
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    vehicle_id : req.body.vehicle_id,
+    ride_count : req.body.ride_count
     });
-    console.log(myData)
     const error=await validationResult(req);
     if(!error.isEmpty()){
       res.status(400).json({
@@ -21,7 +19,7 @@ exports.add_new_vechicle=async(req,res)=>{
         .then(function(result){
             res.status(201).json({
                 success:true,
-                message:"Vehicle Registered Sucessfully!",
+                message:"Current Location Registered Sucessfully!",
                 data:result
               });
         })
@@ -35,8 +33,8 @@ exports.add_new_vechicle=async(req,res)=>{
 };
 
 
-exports.get_travel_route=function(req,res){
- vehicleRegister.find()
+exports.get_current_location=function(req,res){
+  CurrentLocation.find()
   .then(function(data){
       res.status(200).json({
         success:true,
@@ -52,16 +50,16 @@ exports.get_travel_route=function(req,res){
 };
 
 
-exports.updateLocation=function(req,res){
+exports.update_current_location=function(req,res){
     const id=req.params.id;
     const data=req.body;
-    vehicleRegister.updateOne({_id:id},{Location:data.Location})
+    CurrentLocation.updateOne({_id:id},data)
         .then(function(result){
-            vehicleRegister.findById(id)
+            CurrentLocation.findById(id)
             .then(function(data){
                 res.status(200).json({
                   success:true,
-                  message:"All Routes",
+                  message:"Current Location Updates",
                   data:data
                 });
               }).catch(function(err) {
@@ -77,5 +75,8 @@ exports.updateLocation=function(req,res){
         });
         });
 };
+
+
+
 
 

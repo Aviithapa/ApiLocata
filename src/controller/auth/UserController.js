@@ -8,6 +8,7 @@ exports.user_register=async(req,res)=>{
     username:req.body.username,
     phone_number: req.body.phone_number,
     password:req.body.password,
+    role:req.body.role
     });
     const salt=await bcrypt.genSalt(10);
     const hashedPassword=await bcrypt.hash(myData['password'],salt);
