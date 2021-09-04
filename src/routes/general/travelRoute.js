@@ -11,7 +11,7 @@ router.post("/route/add", validates.validate('travel_route'),TravelRouteControll
 // ------------------ROUTE TO DISPLAY TRAVEL ROUTES -----------------------
 router.get("/route/display", TravelRouteController.get_travel_route);
 
-router.get("/route/get", TravelRouteController.get_search_data);
+router.post("/route/get", TravelRouteController.get_search_data);
 // // ------------------ROUTE TO DELETE TRAVEL ROUTE -----------------------
 // router.get("/route/delete/:id", UserController.user_delete);
 

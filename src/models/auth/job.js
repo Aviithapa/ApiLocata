@@ -1,35 +1,23 @@
 const mongoose = require("mongoose");
-var user = mongoose.model("user", {
-  fname: {
+var job = mongoose.model("job", {
+  jobs: {
     type: String,
     require: true,
   },
-  lname: {
+  location: {
     type: String,
     require: true,
   },
-  username: {
+  experience: {
     type: String,
     unique: true,
     required: true,
   },
-  email: {
+  description: {
     type: String,
   },
-  phone: {
+  position: {
     type: String,
-  },
-  role: {
-    type: String,
-    enum: ["User", "Driver"],
-    default: "User",
-  },
-  address: {
-    type: String,
-  },
-  password: {
-    type: String,
-    required: true,
   },
   created_at: {
     type: Date,
@@ -37,4 +25,4 @@ var user = mongoose.model("user", {
   },
 });
 
-module.exports = user;
+module.exports = job;
